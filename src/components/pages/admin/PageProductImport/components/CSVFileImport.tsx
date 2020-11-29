@@ -45,8 +45,7 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
     const result = await fetch(response.data, {
       method: "PUT",
       headers: {
-        "Content-Type": file.type,
-        "x-amz-acl": "public-read",
+        Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
       },
       body: file,
     });
